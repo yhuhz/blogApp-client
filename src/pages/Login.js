@@ -83,7 +83,7 @@ export default function Login() {
 
           <Form onSubmit={(e) => loginUser(e)}>
             <Form.Group className="mb-3" controlId="formEmail">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Email Address or Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter email or username"
