@@ -3,6 +3,7 @@ import { Button, Container, Card, Row, Col, Form } from 'react-bootstrap';
 import { Notyf } from 'notyf';
 import { useParams } from 'react-router-dom';
 import UserContext from '../UserContext';
+import DeleteComment from '../components/DeleteComment';
 
 export default function Comments() {
   const notyf = new Notyf();
@@ -62,7 +63,7 @@ export default function Comments() {
 
   return (
     <>
-      <Container className="mt-3 d-flex justify-content-center">
+      <Container className="mt-3 d-flex justify-content-center mb-5">
         <Card className="bg-dark" style={{ maxWidth: '500px' }}>
           <Card.Body className="text-center card-body-custom">
             <Card.Title>
@@ -88,8 +89,25 @@ export default function Comments() {
               {postData.comments && postData.comments.length > 0 ? (
                 postData.comments.map((comment, index) => (
                   <div key={index} className="mb-3 text-start px-3 px-md-5">
-                    <strong>{comment.username}</strong>
-                    <p>{comment.comment}</p> <hr />
+                    <div className="row align-items-center">
+                      <div className="col">
+                        <strong>{comment.username}</strong>
+                        <p>{comment.comment}</p>
+                      </div>
+                      <div className="col-1 text-end">
+                        {(user.id === postData.author || user.isAdmin) && (
+                          <>
+                            <DeleteComment
+                              postId={postId}
+                              index={index}
+                              getPostData={getPostData}
+                            />
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    <hr />
                   </div>
                 ))
               ) : (

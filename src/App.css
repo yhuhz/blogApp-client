@@ -50,8 +50,7 @@ span {
 h1,
 h2,
 h4 {
-  font-family: 'Playfair Display', sans-serif;
-  letter-spacing: 2px;
+  font-family: 'Playwrite DK Loopet', cursive !important;
 }
 
 body {
@@ -88,6 +87,10 @@ div {
 
 th {
   background-color: gray !important;
+}
+
+.post-text {
+  color: #fafafa !important;
 }
 
 @media (max-width: 768px) {

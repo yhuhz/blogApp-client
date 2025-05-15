@@ -60,7 +60,6 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUser({
           id: data._id,
           isAdmin: data.isAdmin,

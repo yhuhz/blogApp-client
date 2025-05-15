@@ -38,21 +38,10 @@ export default function MyPosts() {
                           border: '2px white solid',
                           maxWidth: '100%',
                         }}
-                        className="rounded bg-dark p-3"
+                        className="rounded bg-dark p-3 h-100"
                       >
                         <Card.Title>
-                          <h2
-                            className="bg-dark text-center px-3"
-                            style={{
-                              width: '100%',
-                              height: '70px',
-                              overflow: 'hidden',
-                              display: '-webkit-box',
-                              WebkitBoxOrient: 'vertical',
-                              WebkitLineClamp: 2,
-                              textOverflow: 'ellipsis',
-                            }}
-                          >
+                          <h2 className="bg-dark text-center px-3">
                             {post.title}
                           </h2>
                         </Card.Title>
@@ -78,7 +67,7 @@ export default function MyPosts() {
                             </p>
                           </div>
 
-                          <div className="d-flex flexbox gap-1 justify-content-center mt-3">
+                          <div className="d-flex flexbox gap-3 justify-content-center mt-3">
                             <Link
                               to={`/comments/${post._id}`}
                               className="btn btn-outline-light w-100"

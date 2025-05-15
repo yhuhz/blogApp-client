@@ -54,7 +54,7 @@ export default function EditPost({ post, getPostData }) {
         className="w-100"
         onClick={() => editOpen()}
       >
-        <i className="bi bi-pencil-square"></i>{' '}
+        <i className="bi bi-pencil-square"></i>
         <span className="post-text"> Edit Post</span>
       </Button>
 

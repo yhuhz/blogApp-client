@@ -29,30 +29,23 @@ export default function Home() {
                 });
 
                 return (
-                  <Col md={6} key={post._id}>
+                  <Col xl={6} key={post._id}>
                     <Card
-                      style={{
-                        border: '2px white solid',
-                        maxWidth: '100%',
-                      }}
-                      className="rounded bg-dark p-3"
+                      style={{ border: '2px white solid', maxWidth: '100%' }}
+                      className="rounded bg-dark p-3 d-flex flex-column h-100"
                     >
-                      <Card.Title>
-                        <h2
-                          className="bg-dark text-center px-3"
-                          style={{
-                            width: '100%',
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap',
-                            textOverflow: 'ellipsis',
-                          }}
-                        >
-                          {post.title}
-                        </h2>
+                      <Card.Title
+                        className="text-center bg-dark px-3"
+                        style={{ height: '80px', overflow: 'auto' }}
+                      >
+                        <h2>{post.title}</h2>
                       </Card.Title>
+
+                      <div className="flex-grow-1"></div>
+
                       <Card.Body className="card-body-custom bg-dark">
                         <div>
-                          <div className="d-flex flexbox justify-content-between">
+                          <div className="d-flex justify-content-between">
                             <p className="fw-light">by {post.authorName}</p>
                             <p>{formattedDate}</p>
                           </div>
@@ -69,7 +62,7 @@ export default function Home() {
                           </p>
                         </div>
 
-                        <div className="d-flex flexbox gap-1 justify-content-center mt-3">
+                        <div className="d-flex gap-3 justify-content-center mt-3">
                           <Link
                             to={`/comments/${post._id}`}
                             className="btn btn-outline-light w-100"
@@ -77,18 +70,19 @@ export default function Home() {
                             <i className="bi bi-book-half"></i>
                             <span className="post-text"> View Post</span>
                           </Link>
-                          {user.id !== null && user.isAdmin && (
-                            <>
-                              <EditPost
-                                post={post}
-                                getPostData={getPostsData}
-                              />
-                              <DeletePost
-                                post={post}
-                                getPostData={getPostsData}
-                              />{' '}
-                            </>
-                          )}
+                          {user.id !== null &&
+                            (user.id === post.author || user.isAdmin) && (
+                              <>
+                                <EditPost
+                                  post={post}
+                                  getPostData={getPostsData}
+                                />
+                                <DeletePost
+                                  post={post}
+                                  getPostData={getPostsData}
+                                />
+                              </>
+                            )}
                         </div>
                       </Card.Body>
                     </Card>
