@@ -95,7 +95,7 @@ export default function Comments() {
                         <p>{comment.comment}</p>
                       </div>
                       <div className="col-1 text-end">
-                        {(user.id === postData.author || user.isAdmin) && (
+                        {(user.id === comment.userId || user.isAdmin) && (
                           <>
                             <DeleteComment
                               postId={postId}
