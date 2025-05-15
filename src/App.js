@@ -16,6 +16,7 @@ import Comments from './pages/Comments';
 function App() {
   const [user, setUser] = useState({
     id: null,
+    isAdmin: null,
   });
 
   function unsetUser() {
@@ -33,11 +34,13 @@ function App() {
         .then((data) => {
           setUser({
             id: data._id,
+            isAdmin: data.isAdmin,
           });
         });
     } else {
       setUser({
         id: null,
+        isAdmin: null,
       });
     }
   }, []);

@@ -69,13 +69,26 @@ export default function Home() {
                           </p>
                         </div>
 
-                        <div className="d-lg-flex flexbox gap-1 justify-content-center mt-3">
+                        <div className="d-flex flexbox gap-1 justify-content-center mt-3">
                           <Link
                             to={`/comments/${post._id}`}
                             className="btn btn-outline-light w-100"
                           >
-                            <i class="bi bi-book-half"></i> View Post
+                            <i className="bi bi-book-half"></i>
+                            <span className="post-text"> View Post</span>
                           </Link>
+                          {user.id !== null && user.isAdmin && (
+                            <>
+                              <EditPost
+                                post={post}
+                                getPostData={getPostsData}
+                              />
+                              <DeletePost
+                                post={post}
+                                getPostData={getPostsData}
+                              />{' '}
+                            </>
+                          )}
                         </div>
                       </Card.Body>
                     </Card>
